@@ -1,4 +1,4 @@
-name: 'Setup ArangoDB'
+name: 'Setup ArangoDB database'
 description: 'Setup ArangoDB'
 author: 'Xinova'
 branding:
@@ -7,10 +7,17 @@ branding:
 inputs:
   # See https://hub.docker.com/_/arangodb for supported versions
   # and further details on input environment variables
-  arangodb version:
-    description: 'Version of ArangoDB to use'
+  version:
+    description: 'version of ArangoDB to use'
     required: false
     default: 'latest'
+  port:
+    description: 'port to access ArangoDB'
+    required: false
+    default: 8529
+  root_password:
+    description: 'root password'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'

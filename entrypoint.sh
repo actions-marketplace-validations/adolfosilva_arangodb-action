@@ -5,6 +5,6 @@
 CMD="arangodb --starter.mode=single --starter.address=0.0.0.0"
 
 docker_run="docker run"
-docker_run="$docker_run -d -p 8529:8529 arangodb:$INPUT_ARANGODB_VERSION $CMD"
+docker_run="$docker_run -d -e ARANGO_ROOT_PASSWORD=$INPUT_ROOT_PASSWORD -p $INPUT_PORT:8529 arangodb:$INPUT_VERSION $CMD"
 
 sh -c "$docker_run"
